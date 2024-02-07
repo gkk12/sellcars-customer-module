@@ -1,0 +1,377 @@
+
+GET http://localhost:3000/users
+
+###
+
+GET http://localhost:3000/users/65bf5e014202a46d899fc1a9
+
+###
+
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "first_name": "John",
+    "last_name": "Doe", 
+    "password_hash": "Hello@123",
+    "email": "john.doe@example.com"
+}
+
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "first_name": "Jane",
+    "last_name": "Smith", 
+    "password_hash": "P@ssw0rd",
+    "email": "jane.smith@example.com"
+}
+
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "first_name": "Alice",
+    "last_name": "Johnson", 
+    "password_hash": "Secr3tP@ss",
+    "email": "alice.j@example.com"
+}
+
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "first_name": "Bob",
+    "last_name": "Smith", 
+    "password_hash": "P@ssw0rd123",
+    "email": "bob.smith@example.com"
+}
+
+
+###
+DELETE http://localhost:3000/users/65bf5d814202a46d899fc19f
+
+###
+PUT http://localhost:3000/users/65bf5e054202a46d899fc1ad
+Content-Type: application/json
+
+{
+    "first_name": "Eva",
+    "last_name": "Anderson", 
+    "password_hash": "StrongP@ss456",
+    "email": "eva.anderson@example.com"
+}
+
+###
+GET http://localhost:3000/customers-page
+
+###
+// Customer of type PRIVATE
+POST http://localhost:3000/customers-page/customer
+Content-Type: application/json
+
+{
+  "intnr": "CUST123",
+  "type": "PRIVATE",
+  "contact_persons":
+    [{
+      "first_name": "Johns",
+      "last_name": "Doe",
+      "email": "john@example.com",
+      "mobile_phone": "+1234567890",
+      "birth_date": "1990-01-01"
+    }],
+  "addresses": 
+    [{
+      "company_name": "",
+      "country": "USA",
+      "city": "New York",
+      "zip": "10001",
+      "fax": "",
+      "phone": "",
+      "street": "123 Main Street",
+      "email": ""
+    }]
+}
+
+###
+// Customer of type COMPANY
+POST http://localhost:3000/customers-page/customers
+Content-Type: application/json
+
+{
+  "customers": [
+    {
+      "intnr": "COMP456",
+      "type": "COMPANY",
+      "contact_persons": [
+        {
+          "first_name": "Jane",
+          "last_name": "Doe",
+          "email": "jane@example.com",
+          "mobile_phone": "+9876543211",
+          "birth_date": "1988-08-22"
+        }
+      ],
+      "addresses": [
+        {
+          "company_name": "ABC Corp",
+          "country": "USA",
+          "city": "New York",
+          "zip": "10001",
+          "fax": "+9876543219",
+          "phone": "+9876543218",
+          "street": "Business Blvd",
+          "email": "info@abc-corp.com"
+        }
+      ]
+    },
+    {
+      "intnr": "CUST789",
+      "type": "COMPANY",
+      "contact_persons": [
+        {
+          "first_name": "John",
+          "last_name": "Smith",
+          "email": "john.smith@example.com",
+          "mobile_phone": "+1234567890",
+          "birth_date": "1995-04-10"
+        }
+      ],
+      "addresses": [
+        {
+          "company_name": "XYZ Ltd",
+          "country": "Canada",
+          "city": "Toronto",
+          "zip": "M5V 2E8",
+          "fax": "+1-123-456-7899",
+          "phone": "+1-987-654-3211",
+          "street": "Tech Street",
+          "email": "info@xyzltd.com"
+        }
+      ]
+    }
+  ]
+}
+
+###
+GET http://localhost:3000/customers-page
+
+###
+PUT http://localhost:3000/customers-page/65c26da2cf154ba8a5da66a1
+Content-Type: application/json
+
+{ 
+      "intnr": "CUST78",
+      "contact_person":
+        {
+          "_id": "65c26da2cf154ba8a5da669f",
+          "first_name": "Don",
+          "last_name": "Smith & Co"
+        },
+      "address": 
+        {
+          "_id": "65c26da2cf154ba8a5da669d",
+          "company_name": "GHI Ltd",
+          "city": "Ontario",
+          "zip": "M5V 2E908",
+          "street": "Rengent Street"
+        }
+}
+
+
+###
+POST http://localhost:3000/customers-page/contactPersons
+Content-Type: application/json
+
+{
+  "contactPersons": [
+    {
+      "intnr": "COMP456",
+      "contact_person": {
+        "first_name": "Michael",
+        "last_name": "Johnson",
+        "email": "michael@example.com",
+        "mobile_phone": "+1122334455",
+        "birth_date": "1982-09-20"
+      },
+      "address": {
+        "company_name": "XYZ Ltd",
+        "country": "United Kingdom",
+        "city": "London",
+        "zip": "SW1A 1AA",
+        "fax": "",
+        "phone": "+44-20-1234-5678",
+        "street": "789 Maple Lane",
+        "email": "info@xyzltd.co.uk"
+      }
+    },
+    {
+        "intnr": "COMP456",
+        "contact_person":
+          {
+            "first_name": "Alice",
+            "last_name": "Smith",
+            "email": "alice@example.com",
+            "mobile_phone": "+9876543210",
+            "birth_date": "1990-05-15"
+          },
+        "address": {
+          "company_name": "ABC Corp",
+          "country": "USA",
+          "city": "New York",
+          "zip": "10002",
+          "fax": "+9876543220",
+          "phone": "+9876543219",
+          "street": "Business Street",
+          "email": "info@abc-corp.com"
+        }
+      },
+    {
+      "intnr": "COMP457",
+      "contact_person": {
+        "first_name": "Alice",
+        "last_name": "Smith",
+        "email": "alice@example.com",
+        "mobile_phone": "+9876543210",
+        "birth_date": "1990-05-15"
+      },
+      "address": {
+        "company_name": "DEF Corp",
+        "country": "USA",
+        "city": "New York",
+        "zip": "10002",
+        "fax": "+9876543220",
+        "phone": "+9876543219",
+        "street": "Business Street",
+        "email": "info@abc-corp.com"
+      }
+    }
+  ]
+}
+
+###
+POST http://localhost:3000/customers-page/addresses
+Content-Type: application/json
+
+{
+  "addresses": [
+    {
+      "intnr": "CUST789",
+      "address":
+        {
+          "company_name": "Tech Solutions Inc.",
+          "country": "Australia",
+          "city": "Sydney",
+          "zip": "2000",
+          "fax": "+61-2-9876-5432",
+          "phone": "+61-2-1234-5678",
+          "street": "321 Tech Street",
+          "email": "info@techsolutions.com.au"
+        }
+    },
+    {
+        "intnr": "CUST789",
+        "address": 
+        {
+            "company_name": "Global Innovations Ltd.",
+            "country": "United States",
+            "city": "San Francisco",
+            "zip": "94105",
+            "fax": "+1-415-987-6543",
+            "phone": "+1-415-123-4567",
+            "street": "456 Innovation Avenue",
+            "email": "info@globalinnovations.com"
+        }
+    },
+    {
+        "intnr": "COMP458",
+        "address": {
+            "company_name": "TechHub Solutions",
+            "country": "Canada",
+            "city": "Toronto",
+            "zip": "M5V 3A6",
+            "fax": "+1-416-987-6543",
+            "phone": "+1-416-123-4567",
+            "street": "789 Tech Lane",
+            "email": "info@techhubsolutions.ca"
+        }
+    }
+  ]
+}
+
+PUT http://localhost:3000/customers-page
+Content-Type: application/json
+
+{
+    "first_name": "Eva",
+    "last_name": "Anderson", 
+    "password_hash": "StrongP@ss456",
+    "email": "eva.anderson@example.com"
+}
+
+
+###
+// Customer of type DEALER
+{
+    "intnr": "DLR789",
+    "type": "DEALER",
+    "contact_persons": [
+        {
+            "first_name": "Dealer",
+            "last_name": "Manager",
+            "email": "dealer@example.com",
+            "mobile_phone": "+1112233445",
+            "birth_date": "1975-12-10"
+        }
+    ],
+    "addresses": [
+        {
+            "company_name": "Auto Deals Inc",
+            "country": "Canada",
+            "city": "Toronto",
+            "zip": "M5J 2N8",
+            "fax": "+1122334455",
+            "phone": "+1122334456",
+            "street": "Car Street",
+            "email": "info@autodeals.ca"
+        }
+    ]
+}
+
+###
+DELETE http://localhost:3000/customers-page/COMP456
+
+###
+// Customer of type PRIVATE
+POST http://localhost:3000/customers-page
+Content-Type: application/json
+
+{
+  "intnr": "CUST124",
+  "type": "PRIVATE",
+  "contact_persons": [
+    {
+      "first_name": "Johns",
+      "last_name": "Doe",
+      "email": "john@example.com",
+      "mobile_phone": "+1234567890",
+      "birth_date": "1990-01-01"
+    }
+  ],
+  "addresses": [
+    {
+      "company_name": "",
+      "country": "USA",
+      "city": "New York",
+      "zip": "10001",
+      "fax": "",
+      "phone": "",
+      "street": "123 Main Street",
+      "email": ""
+    }
+  ]
+}

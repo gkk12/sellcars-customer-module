@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="dist/index.js" type="module"></script>
+    <title>SellCars</title>
+    <style>
+        body {
+            background-color: #8b8a88;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #container {
+            background-color: #dedede;
+            padding: 20px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        #btn-login {
+            width: 150px;
+            background-color: #384f88;
+            color: white;
+            font-size: large;
+            font-family: 'Times New Roman', Times, serif;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1>SellCars</h1>
+        </div>
+        <input id="txt-input-username" placeholder="Username" />
+        <input id="txt-input-password" type="password" placeholder="Password" />
+        <div><button id="btn-login" name="login">Login</button></div>
+    </div>
+</body>
+</html>
